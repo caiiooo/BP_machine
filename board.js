@@ -1,7 +1,7 @@
 var five = require("johnny-five");
-var Raspi = require("raspi-io").RaspiIO;
+// var Raspi = require("raspi-io").RaspiIO;
 var board = new five.Board({
-  io: new Raspi()
+  // io: new Raspi()
 });
 var _ = require("lodash");
 var solenoideValve;
@@ -17,9 +17,9 @@ boardStart = () => {
   console.log("Board Starting...");
   board.on("ready", function() {
     // Board Started
-    solenoideValve = new five.Relay(2);
+    solenoideValve = new five.Relay(26);
     solenoideValve.close();
-    sensorFlow = new five.Pin(5);
+    sensorFlow = new five.Pin(6);
 
     sensorFlow.read(function(error, value) {
       // console.log(value);
