@@ -2,7 +2,7 @@ const axios = require("axios");
 
 exports.authMachine = (token) => {
 	return new Promise((resolve, reject) => {
-		//console.log("token", token)
+		console.log("token", token)
 		axios.post(process.env.MACHINE_SERVICE_URL + "/authMachine", {
 			token,
 		})

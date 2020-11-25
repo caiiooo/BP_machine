@@ -1,7 +1,6 @@
 const { replay, flow } = require("./board");
 var currentPin = 0;
 
-var convertionFactor = 
 
 flow.read(function(error, value) {
   console.log(flowCount);
