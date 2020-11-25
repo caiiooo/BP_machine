@@ -14,16 +14,16 @@ var machine = {};
 var timerId = null;
 
 connect = () => {
-  console.log("Connected");
+  // console.log("Connected");
   socket.emit(VERIFY_MACHINE);
   socket.on(VERIFY_MACHINE, result => {
-    console.log("aqui entao")
+    // console.log("aqui entao")
     setMachine(result);
   });
 };
 
 setMachine = result => {
-  console.log("aqui");
+  // console.log("aqui");
   console.log(result);
   if (result.machine !== null) {
     socket.emit(MACHINE_CONNECTED, result.machine);
@@ -36,6 +36,7 @@ setMachine = result => {
 openMachine = () => {
   // console.log(`${MACHINE_REQUEST}-${MACHINENUMBER}`);
   //console.log(machine);
+  console.log("maquina disponivel")
   socket.on(`${MACHINE_REQUEST}-${MACHINENUMBER}`, user => {
     //valida se a maquina esta disponivel
 
