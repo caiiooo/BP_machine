@@ -29,14 +29,14 @@ boardStart = () => {
 };
 
 releaseMachine = () => {
-  // solenoideValve.open();
+  solenoideValve.open();
 };
 
 blocksMachine = (socket, user) => {
   //bloquea a chopeira
   //print
   if (getState().active) {
-    // solenoideValve.close();
+    solenoideValve.close();
 
     //console.log(`${state.flowCount}.....`);
     // setTimeout(() => {
