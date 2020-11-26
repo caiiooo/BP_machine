@@ -1,5 +1,8 @@
 var five = require("johnny-five");
-var board = new five.Board();
+var Raspi = require("raspi-io").RaspiIO;
+var board = new five.Board({
+  io: new Raspi()
+});
 var _ = require("lodash");
 var solenoideValve;
 var sensorFlow;
