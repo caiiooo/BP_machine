@@ -1,6 +1,4 @@
 require("dotenv").config();
-// const socketUrl = "http://napontadosdedos.com.br:21650";
-// const socketUrl = "http://localhost:21650";
 const socketUrl = process.env.OPERATION_SERVICE_URL;
 const { authMachine } = require("./service/authService");
 
