@@ -1,8 +1,5 @@
 var five = require("johnny-five");
-var Raspi = require("raspi-io").RaspiIO;
-var board = new five.Board({
-  io: new Raspi()
-});
+var board = new five.Board();
 var _ = require("lodash");
 var solenoideValve;
 var sensorFlow;
@@ -32,14 +29,14 @@ boardStart = () => {
 };
 
 releaseMachine = () => {
-  solenoideValve.open();
+  // solenoideValve.open();
 };
 
 blocksMachine = (socket, user) => {
   //bloquea a chopeira
   //print
   if (getState().active) {
-    solenoideValve.close();
+    // solenoideValve.close();
 
     //console.log(`${state.flowCount}.....`);
     // setTimeout(() => {

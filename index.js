@@ -7,6 +7,7 @@ conectToSocket = () => {
     authMachine(process.env.MACHINENUMBER, process.env.AUTH_TOKEN)
         .then((result) => {
             if (result.data && result.data.token) {
+                console.log(socketUrl)
                 const io = require('socket.io-client');
                 const socket = io(socketUrl, {
                     query: 'token=' + result.data.token,
@@ -23,9 +24,9 @@ conectToSocket = () => {
                     console.log('disconnect');
                 });
 
-                socket.on('error', (reason) => {
-                    console.log(reason);
-                });
+                // socket.on('error', (reason) => {
+                //     console.log(reason);
+                // });
 
                 boardStart();
             }

@@ -10,7 +10,7 @@ var machine = {};
 var timerId = null;
 
 connect = () => {
-    // console.log("Connected");
+    console.log("Connected");
     socket.emit(VERIFY_MACHINE);
     socket.on(VERIFY_MACHINE, (result) => {
         // console.log("aqui entao")
