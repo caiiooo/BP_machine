@@ -1,20 +1,22 @@
-const axios = require("axios");
+const axios = require('axios');
 
-exports.authMachine = (token) => {
-	return new Promise((resolve, reject) => {
-		console.log("token", token)
-		axios.post(process.env.MACHINE_SERVICE_URL + "/authMachine", {
-			token,
-		})
-			.then((response) => {
-				return resolve(response.data);
-				//console.log(response);
-			})
-			.catch((err) => {
-				//console.log(err.response);
-				reject(err);
-			});
-	});
+exports.authMachine = (number, token) => {
+    return new Promise((resolve, reject) => {
+        console.log('token', token);
+        axios
+            .post(process.env.MACHINE_SERVICE_URL + '/authMachine', {
+                number,
+                token,
+            })
+            .then((response) => {
+                return resolve(response.data);
+                //console.log(response);
+            })
+            .catch((err) => {
+                //console.log(err.response);
+                reject(err);
+            });
+    });
 };
 
 // {
@@ -25,9 +27,10 @@ exports.authMachine = (token) => {
 // 	totalValue: "752",
 // }
 exports.addConsume = (data) => {
-	axios.post(process.env.USER_SERVICE_URL + "/consuption", data)
-		.then((response) => {
-			console.log(response.data);
-		})
-		.catch((err) => console.log("ERROR: addConsume"));
+    axios
+        .post(process.env.USER_SERVICE_URL + '/consuption', data)
+        .then((response) => {
+            console.log(response.data);
+        })
+        .catch((err) => console.log('ERROR: addConsume'));
 };
