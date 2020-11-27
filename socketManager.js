@@ -63,7 +63,7 @@ openMachine = () => {
                 if (getConsume() > user.credit) {
                     finishOperation(user);
                 }
-            }, 100);
+            }, 1000);
         } else {
             console.log('Maquina foi solicitada durante a utilização');
         }
