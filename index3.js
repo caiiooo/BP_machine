@@ -1,10 +1,8 @@
 var five = require("johnny-five");
-// var Raspi = require("raspi-io").RaspiIO;
-var board = new five.Board(
-//   {
-//   io: new Raspi()
-// }
-);
+var Raspi = require("raspi-io").RaspiIO;
+var board = new five.Board({
+  io: new Raspi()
+});
 var _ = require("lodash");
 var timeFlag = true;
 const FATOR = 9.66;
