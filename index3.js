@@ -25,9 +25,9 @@ board.on("ready", function() {
   //   }
   // });
   relay.open();
-  // setInterval(() => {
-  //   relay.toggle();
-  // }, 1000);
+  setInterval(() => {
+    relay.close();
+  }, 1000);
   pin.read(function(error, value) {
     // console.log(error)
     // console.log(flowCount);
