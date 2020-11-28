@@ -7,7 +7,7 @@ var _ = require("lodash");
 var timeFlag = true;
 const FATOR = 9.66;
 board.on("ready", function() {
-  var relay = new five.Relay(17);
+  var relay = new five.Relay(0);
   var pin = new five.Pin(27);
   // var button = new five.Button(10);
   var flowCount = 0;
