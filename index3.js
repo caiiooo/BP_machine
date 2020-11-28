@@ -1,13 +1,15 @@
 var five = require("johnny-five");
-var Raspi = require("raspi-io").RaspiIO;
-var board = new five.Board({
-  io: new Raspi()
-});
+// var Raspi = require("raspi-io").RaspiIO;
+var board = new five.Board(
+//   {
+//   io: new Raspi()
+// }
+);
 var _ = require("lodash");
 var timeFlag = true;
 const FATOR = 9.66;
 board.on("ready", function() {
-  var relay = new five.Relay(28);
+  var relay = new five.Relay(17);
   var pin = new five.Pin(27);
   // var button = new five.Button(10);
   var flowCount = 0;
@@ -25,6 +27,9 @@ board.on("ready", function() {
   //   }
   // });
   relay.open();
+  // setInterval(() => {
+  //   relay.toggle();
+  // }, 1000);
   pin.read(function(error, value) {
     // console.log(error)
     // console.log(flowCount);
@@ -34,7 +39,7 @@ board.on("ready", function() {
     if (currentPin !== value) {
       flowCount++;
 
-      console.log(`${(flowCount*FATOR).toFixed(2)} ml `);
+      console.log(`${(flowCount * FATOR).toFixed(2)} ml `);
       currentPin = value;
     }
   });
@@ -63,7 +68,9 @@ board.on("ready", function() {
       relay.close();
       setTimeout(() => {
         console.log(
-          `${flowCount} - Operação finalizada: ${(flowCount*FATOR).toFixed(2)} ml `
+          `${flowCount} - Operação finalizada: ${(flowCount * FATOR).toFixed(
+            2
+          )} ml `
         );
       }, 3500);
     }
