@@ -1,9 +1,9 @@
 var five = require("johnny-five");
-// var Raspi = require("raspi-io").RaspiIO;
+var Raspi = require("raspi-io").RaspiIO;
 var board = new five.Board(
-//   {
-//   io: new Raspi()
-// }
+  {
+  io: new Raspi()
+}
 );
 var _ = require("lodash");
 var timeFlag = true;
