@@ -113,6 +113,7 @@ finishOperation = (user) => {
                 'MACHINE_CONSUMPTION_TOTALS',
                 {
                     userId: user.userId,
+                    reference: user.reference,
                     consume: getConsume(),
                 },
                 process.env.MACHINENUMBER
