@@ -15,7 +15,7 @@ conectToSocket = () => {
         module.exports = socket;
 
         const { socketManager } = require("./socketManager");
-        // const { boardStart } = require("./board");
+        const { boardStart } = require("./board");
         //console.log(process.env.MY_VARIABLE);
         socket.on("connect", socketManager);
 
@@ -30,7 +30,7 @@ conectToSocket = () => {
         //     console.log(reason);
         // });
 
-        // boardStart();
+        boardStart();
       }
     })
     .catch(err => {
