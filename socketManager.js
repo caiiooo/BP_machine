@@ -9,7 +9,7 @@ const {
 } = require("./Events");
 
 const MACHINENUMBER = process.env.MACHINENUMBER;
-const { releaseMachine, blocksMachine, flowCountPerLiter } = require('./board');
+// const { releaseMachine, blocksMachine, flowCountPerLiter } = require('./board');
 
 const {
   getState,
@@ -97,7 +97,7 @@ configOperation = () => {
         console.log("Maquina solicitada por: ", user);
         // test();
         startCount();
-        releaseMachine();
+        // releaseMachine();
         countVerification = 0;
         console.log("MACHINE_CONSUMPTION started");
         autoBlock = setTimeout(() => {
@@ -114,13 +114,15 @@ configOperation = () => {
 finishOperation = user => {
   clearTimeout(timerId);
   timerId = null;
-  blocksMachine();
+  // blocksMachine();
   //console.log("intervalue", timerId);
   //emite consumo final
   const state = getState();
   if (state.active) {
     endCount();
+    // const consume = user.credit
     setTimeout(() => {
+      const consume = getConsume();
       console.log("Final: ", getConsume());
       console.log("User Id", user.userId);
       socket.emit(
@@ -128,7 +130,7 @@ finishOperation = user => {
         {
           userId: user.userId,
           reference: user.reference,
-          consume: getConsume()
+          consume: consume > user.credit ? user.credit : consume
         },
         process.env.MACHINENUMBER
       );
@@ -152,7 +154,7 @@ configBleed = () => {
         console.log("Sangria solicitada por: ", user);
         // test();
         startCount();
-        releaseMachine();
+        // releaseMachine();
         console.log("MACHINE_BLEED started");
         var autoBlock = setTimeout(() => finishBleed(user), 15000);
 
@@ -174,7 +176,7 @@ configBleed = () => {
 finishBleed = () => {
   clearInterval(timerId);
   timerId = null;
-  blocksMachine();
+  // blocksMachine();
   //console.log("intervalue", timerId);
   //emite consumo final
   const state = getState();
