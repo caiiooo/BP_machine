@@ -69,7 +69,7 @@ verifiConsume = user => {
     }
 
     const consume = getConsume();
-    if (consume >= user.credit) {
+    if (consume > user.credit) {
       return finishOperation(user);
     }
     if (state.stopCount > 100) return finishOperation(user);

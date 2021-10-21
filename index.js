@@ -15,15 +15,16 @@ conectToSocket = () => {
         module.exports = socket;
 
         const { socketManager } = require("./socketManager");
-        const { boardStart } = require("./board");
+        const { boardStart, blocksMachine } = require("./board");
         //console.log(process.env.MY_VARIABLE);
         socket.on("connect", socketManager);
-
+        
         socket.on("disconnect", () => {
           // setTimeout(() => conectToSocket(), 10000);
+          blocksMachine();
           console.log("disconnect");
-          process.exit(1)
-        //   setTimeout(() => socket.connect(), 10000);
+          process.exit(1);
+          //   setTimeout(() => socket.connect(), 10000);
         });
 
         // socket.on('error', (reason) => {
