@@ -22,7 +22,7 @@ boardStart = () => {
     sensorFlow = new five.Pin(28);
 
     sensorFlow.read(function(error, value) {
-      console.log(value);
+      // console.log(value);
       const state = getState();
       if (state.active) {
         handleConsume(value);
